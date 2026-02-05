@@ -2,13 +2,6 @@
 
 const benefits = [
   {
-    icon: "🏘️",
-    title: "Barrios Auténticos",
-    description:
-      "Conoce exactamente dónde hospedarte según tu estilo — desde El Poblado trendy hasta el auténtico Laureles.",
-    gradient: "from-terracotta to-sunset",
-  },
-  {
     icon: "🚡",
     title: "Metro & Metrocable",
     description:
@@ -83,7 +76,7 @@ export function Benefits() {
       </div>
 
       {/* Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto relative">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto relative">
         {benefits.map((benefit, index) => (
           <div
             key={benefit.title}
