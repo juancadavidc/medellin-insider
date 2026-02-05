@@ -4,18 +4,25 @@
   --font-display: var(--font-dm-serif);
   --font-body: var(--font-outfit);
 
-  --color-terracotta: #E07A5F;
-  --color-terracotta-dark: #C4654D;
-  --color-jungle: #3D5A47;
-  --color-jungle-light: #4A6B54;
-  --color-purple: #8B5CF6;
-  --color-purple-light: #A78BFA;
-  --color-cream: #FDF6EC;
-  --color-cream-dark: #F5EBD8;
-  --color-charcoal: #2C2C2C;
-  --color-charcoal-light: #4A4A4A;
-  --color-gold: #D4A574;
-  --color-success: #22C55E;
+  /* Medellín-inspired palette */
+  --color-terracotta: #E85D04;
+  --color-terracotta-dark: #DC2F02;
+  --color-terracotta-light: #F48C06;
+  --color-jungle: #2D6A4F;
+  --color-jungle-light: #40916C;
+  --color-jungle-dark: #1B4332;
+  --color-orchid: #9D4EDD;
+  --color-orchid-light: #C77DFF;
+  --color-sky: #48CAE4;
+  --color-sky-dark: #0096C7;
+  --color-cream: #FFF8F0;
+  --color-cream-dark: #FFE8D6;
+  --color-charcoal: #1A1A2E;
+  --color-charcoal-light: #4A4E69;
+  --color-gold: #FFBA08;
+  --color-success: #06D6A0;
+  --color-mountain: #52796F;
+  --color-sunset: #FF6B35;
 }
 
 html {
@@ -116,3 +123,82 @@ body {
 .delay-1000 { animation-delay: 1s; }
 
 .float-delay-2 { animation-delay: 2s; }
+
+/* Medellín Mountain Silhouette */
+.mountain-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%232D6A4F' fill-opacity='0.1' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+/* Orchid pattern */
+@keyframes orchid-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.orchid-sway {
+  animation: orchid-sway 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Metro cable animation */
+@keyframes cable-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.cable-animation {
+  animation: cable-move 20s linear infinite;
+}
+
+/* Gradient mesh for Medellín sunset */
+.medellin-gradient {
+  background:
+    radial-gradient(ellipse at 70% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 80%, rgba(45, 106, 79, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 90%, rgba(157, 78, 221, 0.08) 0%, transparent 40%),
+    linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Flower burst animation */
+@keyframes flower-bloom {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: scale(1) rotate(360deg); opacity: 0; }
+}
+
+/* Parque Arví inspired texture */
+.forest-texture {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(45, 106, 79, 0.05) 0%, transparent 25%),
+    radial-gradient(circle at 80% 30%, rgba(64, 145, 108, 0.05) 0%, transparent 25%),
+    radial-gradient(circle at 50% 80%, rgba(82, 121, 111, 0.05) 0%, transparent 25%);
+}
+
+/* Metro line inspired underline */
+.metro-underline {
+  position: relative;
+}
+
+.metro-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-terracotta), var(--color-gold), var(--color-jungle));
+  border-radius: 2px;
+}
